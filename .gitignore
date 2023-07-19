@@ -164,3 +164,7 @@ cython_debug/
 DATA_CLEANING_NOTES.py
 Resources/
 Resources_LU/
+Resources_HR/
+Resources_PA/
+Resources_LI/
+Resources_KI/

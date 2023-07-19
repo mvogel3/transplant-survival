@@ -162,7 +162,7 @@ cython_debug/
 **/.DS_Store
 
 DATA_CLEANING_NOTES.py
-Resources/
+
 Resources_LU/
 Resources_HR/
 Resources_PA/

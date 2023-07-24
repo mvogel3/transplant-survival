@@ -15,3 +15,6 @@ The purpose of our project was to look at survival rates for kidney transplant p
 ![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/1%20Year%20Survivability%20by%20Age.png)
 
 * Lastly, when we examine the survival rates of different age groups 20 years after transplantation, we can see that the rate drops significantly. Again, the younger the patient was at the time of transplantation, the higher their rate of survival. When we think back to the original graph that shows total average survivability of patients over 20 years, we can see the benefit in examining the data by age group instead of as one lump average. Even without taking kidney transplantation into account, the 20 year survival rate of a 65 year old is logically lower than the 20 year survival rate of a child.
+
+![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/20%20Year%20Survival%20Rate.png)
+

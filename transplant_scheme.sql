@@ -119,7 +119,7 @@ CREATE TABLE transplant_survival(
   ,YEAR           INTEGER  NOT NULL
   ,MONTH          INTEGER  NOT NULL
   ,GSR_P0_ACT_C3Y VARCHAR(18)
-  ,FOREIGN KEY (ORG) REFERENCES transplant_recipient(ORG)
+  ,FOREIGN KEY (ENTIRE_NAME) REFERENCES transplant_recipient(ENTIRE_NAME)
 );
 
 DROP TABLE IF EXISTS blood_type;
@@ -142,7 +142,7 @@ CREATE TABLE donor_type(
 	All_Donor_Types INTEGER NOT NULL,
 	Deceased_Donor INTEGER NOT NULL,
 	Living_Donor INTEGER NOT NULL,
-    FOREIGN KEY (Age_Group) REFERENCES blood_type(Age_Group),
+    FOREIGN KEY (Transplant_Year, Age_Group) REFERENCES blood_type(Transplant_Year, Age_Group),
     PRIMARY KEY (Transplant_Year, Age_Group)
 );
 
@@ -159,7 +159,7 @@ CREATE TABLE ethnicity(
 	American_Indian_Alaska_Native_Non_Hispanic INTEGER NOT NULL,
 	Pacific_Islander_Non_Hispanic INTEGER NOT NULL,
 	Multiracial_Non_Hispanic INTEGER NOT NULL,
-    FOREIGN KEY (Age_Group) REFERENCES donor_type(Age_Group),
+    FOREIGN KEY (Transplant_Year, Age_Group) REFERENCES donor_type(Transplant_Year, Age_Group),
     PRIMARY KEY (Transplant_Year, Age_Group)
 );
 
@@ -172,7 +172,7 @@ CREATE TABLE kdpi(
 	eighty_five INTEGER NOT NULL,
 	one_hundred INTEGER NOT NULL,
 	Unknown INTEGER NOT NULL,
-    FOREIGN KEY (Age_Group) REFERENCES ethnicity(Age_Group),
+    FOREIGN KEY (Transplant_Year, Age_Group) REFERENCES ethnicity(Transplant_Year, Age_Group),
     PRIMARY KEY (Transplant_Year, Age_Group)
 );
 
@@ -192,7 +192,7 @@ CREATE TABLE primary_diagnosis(
 	Renovascular_and_Other_Vascular_Disease INTEGER NOT NULL,
 	Retransplant_Graft_Failure INTEGER NOT NULL,
 	Tubular_and_Interstitial_Diseases INTEGER NOT NULL,
-    FOREIGN KEY (Age_Group) REFERENCES primary_diagnosis(Age_Group),
+    FOREIGN KEY (Transplant_Year, Age_Group) REFERENCES primary_diagnosis(Transplant_Year, Age_Group),
     PRIMARY KEY (Transplant_Year, Age_Group)
 );
 
@@ -228,7 +228,7 @@ CREATE TABLE one_year(
   ,American_IndianAlaska_Native_NonHispanic INTEGER  NOT NULL
   ,Pacific_Islander_NonHispanic             INTEGER  NOT NULL
   ,Multiracial_NonHispanic                  INTEGER  NOT NULL
-  ,FOREIGN KEY (Age_Group) REFERENCES primary_diagnosis(Age_Group)
+  ,FOREIGN KEY (Transplant_Year, Age_Group) REFERENCES primary_diagnosis(Transplant_Year, Age_Group)
   ,PRIMARY KEY (Transplant_Year, Age_Group)
 );
 
@@ -264,7 +264,7 @@ CREATE TABLE three_year(
   ,American_IndianAlaska_Native_NonHispanic INTEGER  NOT NULL
   ,Pacific_Islander_NonHispanic             INTEGER  NOT NULL
   ,Multiracial_NonHispanic                  INTEGER  NOT NULL
-  ,FOREIGN KEY (Age_Group) REFERENCES one_year(Age_Group)
+  ,FOREIGN KEY (Transplant_Year, Age_Group) REFERENCES one_year(Transplant_Year,Age_Group)
   ,PRIMARY KEY (Transplant_Year, Age_Group)
 );
 
@@ -300,7 +300,7 @@ CREATE TABLE five_year(
   ,American_IndianAlaska_Native_NonHispanic INTEGER 
   ,Pacific_Islander_NonHispanic             INTEGER 
   ,Multiracial_NonHispanic                  INTEGER
-  ,FOREIGN KEY (Age_Group) REFERENCES three_year(Age_Group)
+  ,FOREIGN KEY (Transplant_Year, Age_Group) REFERENCES three_year(Transplant_Year, Age_Group)
   ,PRIMARY KEY (Transplant_Year, Age_Group) 
 );
 
@@ -336,7 +336,7 @@ CREATE TABLE ten_year(
   ,American_IndianAlaska_Native_NonHispanic INTEGER  NOT NULL
   ,Pacific_Islander_NonHispanic             INTEGER  NOT NULL
   ,Multiracial_NonHispanic                  INTEGER  NOT NULL
-  ,FOREIGN KEY (Age_Group) REFERENCES five_year(Age_Group)
+  ,FOREIGN KEY (Transplant_Year, Age_Group) REFERENCES five_year(Transplant_Year, Age_Group)
   ,PRIMARY KEY (Transplant_Year, Age_Group)
 );
 
@@ -372,7 +372,7 @@ CREATE TABLE fifteen_year(
   ,American_IndianAlaska_Native_NonHispanic INTEGER 
   ,Pacific_Islander_NonHispanic             INTEGER 
   ,Multiracial_NonHispanic                  INTEGER
-  ,FOREIGN KEY (Age_Group) REFERENCES ten_year(Age_Group)
+  ,FOREIGN KEY (Transplant_Year, Age_Group) REFERENCES ten_year(Transplant_Year, Age_Group)
   ,PRIMARY KEY (Transplant_Year, Age_Group) 
 );
 
@@ -407,6 +407,6 @@ CREATE TABLE twenty_year(
   ,American_IndianAlaska_Native_NonHispanic INTEGER  NOT NULL
   ,Pacific_Islander_NonHispanic             INTEGER  NOT NULL
   ,Multiracial_NonHispanic                  INTEGER  NOT NULL
-  ,FOREIGN KEY (Age_Group) REFERENCES fifteen_year(Age_Group)
+  ,FOREIGN KEY (Transplant_Year, Age_Group) REFERENCES fifteen_year(Transplant_Year, Age_Group)
   ,PRIMARY KEY (Transplant_Year, Age_Group)
 );

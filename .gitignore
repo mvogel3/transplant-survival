@@ -160,3 +160,11 @@ cython_debug/
 #.idea/
 
 **/.DS_Store
+
+DATA_CLEANING_NOTES.py
+
+Resources_LU/
+Resources_HR/
+Resources_PA/
+Resources_LI/
+Resources_KI/

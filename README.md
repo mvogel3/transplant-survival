@@ -6,7 +6,7 @@ The purpose of our project was to look at survival rates for kidney transplant p
 ![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/OPTN%20Logo.png)
 
 ## Data Extraction
-We originally examined data from the Scientific Registry of Transplant Recipients [Program Specific Reports(https://www.srtr.org/reports/program-specific-reports/). We examined the National Center-Level Summary Data by Organ for Pancreas, Liver, Heart, Kidney and Lungs, from July 2012 to January 2023. Since we had 5 members in our team, each team member pulled reports for a different organ to clean and concatenate into one file.
+We originally examined data from the Scientific Registry of Transplant Recipients [Program Specific Reports](https://www.srtr.org/reports/program-specific-reports/). We examined the National Center-Level Summary Data by Organ for Pancreas, Liver, Heart, Kidney and Lungs, from July 2012 to January 2023. Since we had 5 members in our team, each team member pulled reports for a different organ to clean and concatenate into one file.
 
 With about 20 excel files for each organ
 

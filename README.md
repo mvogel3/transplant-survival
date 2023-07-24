@@ -22,5 +22,7 @@ The purpose of our project was to look at survival rates for kidney transplant p
 
 ![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/20%20Year%20Survival%20Rate.png)
 
+### Resources and Acknowledgements
+
 * The graphs in this project were built using [Tableau](https://public.tableau.com/views/GraftandPatientSurvivalRateoverTime/1YearSurvivalRatebyAge?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link).
 

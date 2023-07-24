@@ -114,4 +114,3 @@ We pulled the feature importance chart from this prediction model to get the ide
 Graft Survivability and Congenital, Rare, Familial, and Metabolic are more imposrtant is predicting the actual patient survival. 
 
 ![alt text](feature_importance.png)
-

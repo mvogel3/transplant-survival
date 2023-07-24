@@ -31,7 +31,9 @@ Additional data was obtained here:
 
 Looking at patient survival rates of patient by primary diagnosis:
 
-[1, 3, and 5 Year Survival Rates of Patients by Primary Diagnosis](https://public.tableau.com/app/profile/kathleen.anderson7696/viz/KidneyTransplantPatientSurvival-DiagnosisandEthnicity/Diagnosis)
+![1, 3, and 5 Year Survival Rates of Patients by Primary Diagnosis](Images/Survival-Diagnosis.png)
+
+[See Tableau Visualizations for an interactive experience](https://public.tableau.com/app/profile/kathleen.anderson7696/viz/KidneyTransplantPatientSurvival-DiagnosisandEthnicity/Diagnosis)
 
 We can see that patient survival rates for all primary diagnoses for all age groups were:
 - Above 95% 1-year post transplant

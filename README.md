@@ -19,19 +19,19 @@ There were some categories of data that we eliminated because it lacked informat
 ### Additional Data
 Additional data was obtained here:
 
-- U.S. Population Blood Type Distribution Statistics: [title](https://www.statista.com/statistics/1112664/blood-type-distribution-us/)
+- U.S. Population Blood Type Distribution Statistics: [](https://www.statista.com/statistics/1112664/blood-type-distribution-us/)
 
-- Ethnicity of U.S. (as of July 1, 2022): [title](https://www.census.gov/quickfacts/fact/table/US/RHI725222)
+- Ethnicity of U.S. (as of July 1, 2022): [](https://www.census.gov/quickfacts/fact/table/US/RHI725222)
 *note that the percentages total 102.5%*
 
- - Age Groups of U.S. (as of July 1, 2021): [title](https://www.statista.com/statistics/241488/population-of-the-us-by-sex-and-age/)
+ - Age Groups of U.S. (as of July 1, 2021): [](https://www.statista.com/statistics/241488/population-of-the-us-by-sex-and-age/)
 
 
 ## Analysis
 
-Looking at the 1, 3, and 5 Year Patient Survival Rates of Patient by Primary Diagnosis:
+Looking at patient survival rates of patient by primary diagnosis:
 
-[title](https://public.tableau.com/app/profile/kathleen.anderson7696/viz/KidneyTransplantPatientSurvival-DiagnosisandEthnicity/Diagnosis)
+[1, 3, and 5 Year Survival Rates of Patients by Primary Diagnosis](https://public.tableau.com/app/profile/kathleen.anderson7696/viz/KidneyTransplantPatientSurvival-DiagnosisandEthnicity/Diagnosis)
 
 We can see that patient survival rates for all primary diagnoses for all age groups were:
 - Above 95% 1-year post transplant
@@ -42,14 +42,13 @@ Also, while "Congenital, Rare, Familial, and Metabolic Disease" accounted for th
 Looking at the Patient Survival 1, 3, 5, years post-transplant by Ethnicity:
 
 We can see that the highest percentage of survivors are in the White ethnic group, with Black and then Hispanic/Latino.
-![](https://github.com/mvogel3/transplant-survival/blob/kathleen/Images/Survival-Ethnicity.png)
-![](Images/Survival-Ethnicity.png)
+
+![1, 3, and 5 Year Patient Survival - Breakdown by Ethnicity](Images/Survival-Ethnicity.png)
 
 Compared to:
 
 U.S. General Population Ethnicity Breakdown:
-![](https://github.com/mvogel3/transplant-survival/blob/kathleen/Images/Population.png)
-![](Images/Population.png)
+![U.S. General Population Ethnicity Breakdown by Percent](Images/Population.png)
 
 We can see that the White ethnic group is roughly representative of the general U.S. Population while the Black ethnicity survival group for all years accounts for almost double the total population, which tells us that more transplant recipients and survivors are Black than is representative of the general population.
 

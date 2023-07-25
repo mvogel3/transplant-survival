@@ -1,4 +1,12 @@
-# Transplant survival
+# Kidney Transplant Survival
+
+## Team Introduction
+This project was successful due to active participation from the following team members: <br/>
+#### Kathleen Anderson
+#### Jayati Chakraborty
+#### Katherine Rhyno
+#### Arthi Meera Subramanian
+#### Mary-Elizabeth Vogel
 
 ## Purpose
 Right now, more than 103,000 people are in need of an organ transplant. So far this year (as of today) there has already been more than 25,000 organ transplants.  The OPTN - Organ Procurement and Transplantation Network oversees the recovery and distribution of solid organs in this country and is operated by UNOS - the United Network for Organ Sharing who manages the system, including policy, matching systems and overseeing local organ procurement organizations. In years past, patients were evaluated primarily on their medical urgency for placement on the organ transplant waitlist. This factor alone does not take into account many other important factors such as age and potential years of post-transplant survival which, along with some other factors, can contribute to a level of inequity in the allocation system, especially to vulnerable populations. 
@@ -7,8 +15,36 @@ We looked at survival rates of transplant recipients, especially when grouped by
 
 Recently, changes have been made and have very slowly begun to be implemented in how organs are allocated in an attempt to take into account these other factors and make things more equitable. We will look at survival rates of patients.
 
+### Project Question
+How accurately can a machine learning model predict patient survival?
+### Index
+- [Technologies Used](#technologies-used)
+- [Description of Datasources](#description-of-datasources)
+    - [Additional Data](#additional-data)
+    - [Data Exploration](#data-exploration)
+- [Analysis](#analysis)
+    - [Interactive Map](#interactive-map)
+- [Prediction Models for Survival](#prediction-models-for-survival)
+- [Database](#database-1)
+- [Outcomes and Conclusions](#outcomes-and-conclusions)
+---
+- [Tableau Dashboard](#tableau-dashboard)
+- [Presentation](#presentation)
+---
+- [Acknowledgements](#acknowledgements)
+---
+## Technologies Used
+We used a variety of tools and technologies in order to complete this project. The most notable of which are listed below:
+### Data Cleaning
+Microsoft Excel, Jupyter Notebook, Python (pandas, numpy, re, os, calendar, datetime)
+### Database
+postgreSQL, pgAdmin, QuickDB
+### Machine Learning Model
+Python (sklearn, matplotlib, pandas, numpy)
+### Analysis/Visualizations
+Tableau, Python(pandas/matplotlib)
 
-## Data Source
+## Description of Datasources
 Our primary data source was from OPTN from July 2023. Much of data used is publicly available from the OPTN web site: [title](http://optn.transplant.hrsa.gov)
 Specifically used were individual reports from 1988 to 2021 on kidney transplant patients by age based on transplant year with separate reports on primary diagnosis, blood type, ethnicity. Survival rates with these factors of 1, 3 and 5 years were also obtained.
 
@@ -26,8 +62,29 @@ Additional data was obtained here:
 
  - Age Groups of U.S. (as of July 1, 2021): [](https://www.statista.com/statistics/241488/population-of-the-us-by-sex-and-age/)
 
+## Data Exploration
+Our initial dataset came from the Scientific Registry of Transplant Recipients, which is operated by the Chronic Disease Research Group under contract from the US Department of Health and Human Services (HHS). SRTR is responsible for providing extensive data regarding the performance of various aspects of the national transplant system and a tier rating system that can aid patients in selecting their transplant center. 
+
+We were able to pull data regarding patient demographics such as age, BMI, waitlist status, and hospital status prior to transplant procedures. This dataset also included graft survival information specific to transplant centers and regions in the United States going back 10 years. However, this information was not available at a patient level due to privacy protections and was already aggregated to a point that it was unusable for machine learning purposes.
+
+Ultimately, we were able to pull data OPTN that became the basis for our final project. We limited the scope to exclude all organs other than kidney since the kidney is the most transplanted organ
 
 ## Analysis
+The data that we examined went back as far as 1988, and listed the average survival rates of patients and grafts in different age groups. Here you can see the amount of kidney transplants received each year from 1991 to 2021. In 2022, it was reported that the total number of kidney transplants hit a new milestone, with over 25,000 transplants achieved. With so many transplants occurring annually, we wanted to examine what the chances are of survivability by age, and over an extended period of time.
+
+![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/Kidney%20Patients%20Over%20Time.png)
+
+Here you can see the average survival rates of all patients 1 year after transplantation (on the left) and 20 years after transplantation (on the right). It is interesting to note that the patient survival rates for both 1 and 20 years is higher than the graft survival rates, meaning that some patients will need multiple kidney transplants, should their graft fail to survive. The image on the left shows an average survival rate of 80%, whereas the image on the right shows a survival rate of about 20-25% for grafts 20 years after transplantation, and 45-55% patient survival over 20 years. Since the patient survival rates are an average of all age groups, we will examine on the next slide how those rates are being impacted once age groups are disaggregated.
+
+![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/Survival%20Rates%20over%20Time.png)
+  
+In this chart, we examine the average 1 year survival rates for each age group. It should be noted that all age groups have a survival rate of over 78%.The legend shows the colors for each age group, and the graph appears to indicate that patients 49 years and below have the highest rate of survival.
+
+![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/1%20Year%20Survivability%20by%20Age.png)
+
+Lastly, when we examine the survival rates of different age groups 20 years after transplantation, we can see that the rate drops significantly. Again, the younger the patient was at the time of transplantation, the higher their rate of survival. When we think back to the original graph that shows total average survivability of patients over 20 years, we can see the benefit in examining the data by age group instead of as one lump average. Even without taking kidney transplantation into account, the 20 year survival rate of a 65 year old is logically lower than the 20 year survival rate of a child.
+
+![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/20%20Year%20Survival%20Rate.png)
 
 Looking at patient survival rates of patient by primary diagnosis:
 
@@ -54,20 +111,13 @@ U.S. General Population Ethnicity Breakdown:
 
 We can see that the White ethnic group is roughly representative of the general U.S. Population while the Black ethnicity survival group for all years accounts for almost double the total population, which tells us that more transplant recipients and survivors are Black than is representative of the general population.
 
-## Outcomes/Conclusion:
-Kidney transplant patient survival tends to be quite good, and they are better the younger the transplant patient.
-With the new continous distribution model of deceased donor kidneys, younger patients on the waitlist could potentially receive kidneys sooner, perhaps improving the patient survival rate even further, as they potentially have the most life to live, thus improving long term survival statistics. Time will tell if the continuous distribution model will make this improvement.
+### Interactive Map
+Utilizing the concatenated kidney data, we determined the top 20 hospitals and top 20 children’s hospitals who performed the most kidney transplants over a 20 year time span of 2012-2022. This information is significant because the proximity of a patient to a hospital is factored into their position on the waitlist. Then, we linked each of these hospital locations to a latitude and longitude. Using Python, Pandas, Folium, HTML and CSS, we created an interactive map populating the top 20 hospitals and children’s hospitals in the United States, including a pop up which indicated the name of the hospital and the total number of kidney transplants from 2012-2022. 
 
-For future analysis, areas we would have liked to analyze that may affect survival:
-- Waitlist time of transplant survivors
-- KDPI - kidney quality
-- HLA or level of desensitization of transplant recipients
-- More granular data - de-identified patient information
-- Type of insurance - health equity issues in public vs. private insurance.  This would be to include Medicare which currently includes people under 65 if they receive Social Security Disability (such as ALS, legally blind) or **End-Stage Renal Failure** (which can lead to need for a kidney transplant). Treatment approved by Medicare will often result in private insurance automatically making the same treatment approval. 
+<img width="762" alt="Screenshot 2023-07-24 at 3 11 39 PM" src="https://github.com/mvogel3/transplant-survival/assets/123783693/b2915dd9-d3f4-42aa-8463-10e5d2cf293b">
 
-## Acknowledgements
-*"This work was supported in part by Health Resources and Services Administration contract HHSH250-2019-00001C. The content is the responsibility of the authors alone and does not necessarily reflect the views or policies of the Department of Health and Human Services, nor does mention of trade names, commercial products, or organizations imply endorsement by the U.S. Government."*
-=======
+<br><br>
+
 # Prediction Models for Survival
 
 We tried to create the model which can give us prediction about survivability rates for future years. For caculating the survival percentage we used **Linear Regression.** 
@@ -185,45 +235,26 @@ Graft Survivability and Congenital, Rare, Familial, and Metabolic are more impos
 
 ![alt text](feature_importance.png)
 
+## Database
+All of our datasets were kept separate and then imported into a PostgreSQL server. This would allow us to build on the data as OPTN releases more information about cohorts of people.  The relationships between the tables are noted in the ERD below. We attempted to relate our initial transplant center data with the OPTN data but ultimately, we were unsuccessful. 
+![alt text](schema/OPTN_ERD.png)
 
-# HOUDINI24 Kidney Transplant Survival Rates: A Look through Time
+## Outcomes and Conclusions
+Kidney transplant patient survival tends to be quite good, and they are better the younger the transplant patient.
+With the new continous distribution model of deceased donor kidneys, younger patients on the waitlist could potentially receive kidneys sooner, perhaps improving the patient survival rate even further, as they potentially have the most life to live, thus improving long term survival statistics. Time will tell if the continuous distribution model will make this improvement.
 
-## Purpose
-The purpose of our project was to look at survival rates for kidney transplant patients over time, and compare the rates after 1 year and 20 years to see what insight we might find. To complete this task, we used data from the Organ Procurement and Transplantation Network (OPTN), which is a network that links all professionals involved in the U.S. donation and transplantation system. OPTN was established to address the nation’s critical organ donation shortage and improve the organ matching and placement process. 
+For future analysis, areas we would have liked to analyze that may affect survival:
+- Waitlist time of transplant survivors
+- KDPI - kidney quality
+- HLA or level of desensitization of transplant recipients
+- More granular data - de-identified patient information
+- Type of insurance - health equity issues in public vs. private insurance.  This would be to include Medicare which currently includes people under 65 if they receive Social Security Disability (such as ALS, legally blind) or **End-Stage Renal Failure** (which can lead to need for a kidney transplant). Treatment approved by Medicare will often result in private insurance automatically making the same treatment approval. 
 
-![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/OPTN%20Logo.png)
+## Tableau Dashboard
+[See Tableau Visualizations for an interactive experience](https://public.tableau.com/app/profile/kathleen.anderson7696/viz/KidneyTransplantPatientSurvival-DiagnosisandEthnicity/Diagnosis).
+## Presentation
+A Canva presentation with more details about our project can be found [here](https://www.canva.com/design/DAFpI-tUvHw/9f9qcs03zejbCYI1jqeA2A/edit?utm_content=DA[…]m_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
 
-## Data Extraction
-We originally examined data from the Scientific Registry of Transplant Recipients [Program Specific Reports](https://www.srtr.org/reports/program-specific-reports/). We examined the National Center-Level Summary Data by Organ for Pancreas, Liver, Heart, Kidney and Lungs, from July 2012 to January 2023. Since we had 5 members in our team, each team member pulled reports for a different organ to clean and concatenate into one file.
-
-With about 20 excel files for each organ, 20+ tabs per file, and hundreds of columns of data per tab, the scope of the project was too large to work with initially. We tried to narrow the scope by focusing on just a few tabs and columns per excel file, and worked to concatenate the files into one dataframe that we could analyze. 
-
-## Analysis
-The data that we examined went back as far as 1988, and listed the average survival rates of patients and grafts in different age groups. Here you can see the amount of kidney transplants received each year from 1991 to 2021. In 2022, it was reported that the total number of kidney transplants hit a new milestone, with over 25,000 transplants achieved. With so many transplants occurring annually, we wanted to examine what the chances are of survivability by age, and over an extended period of time.
-
-![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/Kidney%20Patients%20Over%20Time.png)
-
-Here you can see the average survival rates of all patients 1 year after transplantation (on the left) and 20 years after transplantation (on the right). It is interesting to note that the patient survival rates for both 1 and 20 years is higher than the graft survival rates, meaning that some patients will need multiple kidney transplants, should their graft fail to survive. The image on the left shows an average survival rate of 80%, whereas the image on the right shows a survival rate of about 20-25% for grafts 20 years after transplantation, and 45-55% patient survival over 20 years. Since the patient survival rates are an average of all age groups, we will examine on the next slide how those rates are being impacted once age groups are disaggregated.
-
-![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/Survival%20Rates%20over%20Time.png)
-  
-In this chart, we examine the average 1 year survival rates for each age group. It should be noted that all age groups have a survival rate of over 78%.The legend shows the colors for each age group, and the graph appears to indicate that patients 49 years and below have the highest rate of survival.
-
-![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/1%20Year%20Survivability%20by%20Age.png)
-
-Lastly, when we examine the survival rates of different age groups 20 years after transplantation, we can see that the rate drops significantly. Again, the younger the patient was at the time of transplantation, the higher their rate of survival. When we think back to the original graph that shows total average survivability of patients over 20 years, we can see the benefit in examining the data by age group instead of as one lump average. Even without taking kidney transplantation into account, the 20 year survival rate of a 65 year old is logically lower than the 20 year survival rate of a child.
-
-![](https://github.com/mvogel3/transplant-survival/blob/Houdini24/Images/20%20Year%20Survival%20Rate.png)
-
-### Resources and Acknowledgements
-I used the following resources to help complete this project:
-
-* GitHub
-* UCB Coding Bootcamp GitLab
-* ChatGPT
-* Python
-* Pandas
-* Jupyter Notebook
-* [Scientific Registry of Transplant Recipients](https://www.srtr.org)
-* [Organ Procurement and Transplantation Network](https://optn.transplant.hrsa.gov)
-* The graphs in this project were built using [Tableau](https://public.tableau.com/views/GraftandPatientSurvivalRateoverTime/1YearSurvivalRatebyAge?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link).
+## Acknowledgements
+*"This work was supported in part by Health Resources and Services Administration contract HHSH250-2019-00001C. The content is the responsibility of the authors alone and does not necessarily reflect the views or policies of the Department of Health and Human Services, nor does mention of trade names, commercial products, or organizations imply endorsement by the U.S. Government."*
+=======
